@@ -1,50 +1,4 @@
 
-.nav {
-    z-index: 1;
-    position: absolute;
-    max-width: 767px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 20px 0 20px;
-    height: 90px; 
-    background: linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,.7) 1%,rgba(0,0,0,.5) 61%,transparent);
-    .register {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 50px;
-        right: 13px;
-        align-items: center;
-    }
-
-    .menu-btn {
-        .btn-line {
-            width: 28px;
-            height: 1px;
-            margin: 0 0 5px 0;
-            background: #fff;
-        }
-        &.close {
-            .btn-line {
-                &:nth-child(1) {
-                    transform: translateY(6px);
-                    transition: transform .3s ease-in-out;
-                    transform: rotate(45deg);
-                }
-                &:nth-child(2) {
-                    transition: transform 1s;
-                    opacity: 0;
-                }
-                &:nth-child(3) {
-                    transform: translateY(-6px);
-                    transition: transform .3s;
-                }
-            }
-        }
-    }
-}
-
 .banner {
     max-width: 767px;
     margin: 0 auto;
@@ -55,6 +9,76 @@
     background-position: center;
     background-size: cover;
     position: relative;
+    .nav {
+        z-index: 1;
+        position: absolute;
+        max-width: 767px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px 20px 0 20px;
+        height: 90px; 
+        background: linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,.7) 1%,rgba(0,0,0,.5) 61%,transparent);
+        background-color: blue;
+        .landmark-logo {
+           flex-grow: 1;
+           img {
+               max-width: 160px;
+           }
+        }
+    
+        .menu-btn {
+            @include mediaMd {
+                max-width: $max-width-tablet;
+                order: 3;
+            }
+            .btn-line {
+                width: 28px;
+                height: 1px;
+                margin: 0 0 5px 0;
+                background: #fff;
+
+            }
+            &.close {
+                .btn-line {
+                    &:nth-child(1) {
+                        transform: translateY(6px);
+                        transition: transform .3s ease-in-out;
+                        transform: rotate(45deg);
+                    }
+                    &:nth-child(2) {
+                        transition: transform 1s;
+                        opacity: 0;
+                    }
+                    &:nth-child(3) {
+                        transform: translateY(-6px);
+                        transition: transform .3s;
+                    }
+                }
+            }
+        }
+
+        .language {
+            display: flex;
+            flex-basis: 100%;
+            flex-direction: column;
+            align-items: flex-end;
+            background-color: green;
+            @include mediaMd {
+                max-width: $max-width-tablet;
+                align-items: flex-start;
+                flex-basis: 10%;
+                order: 1;
+            }
+            
+        }
+        @include mediaMd {
+            max-width: $max-width-tablet;
+        }
+    }
+
+
     .banner-text {
         padding-left: 20px;
         position: absolute;
@@ -112,7 +136,9 @@
             transition: visibility 0s linear 0s, opacity 300ms, .5s ease-in-out;
         }
     }
-
+    @include mediaMd {
+        max-width: $max-width-tablet;
+    }
 }
 
 .quote {
@@ -121,6 +147,9 @@
     height: 450px;
     margin: 0 auto;
     background-color: darkblue;
+    @include mediaMd {
+        max-width: $max-width-tablet;
+    }
     h3 {
         font-size: 1.4rem;
         color: #ceaf70;
@@ -135,6 +164,9 @@
     max-width: 767px;
     width: 100%;
     margin: 0 auto;
+    @include mediaMd {
+        max-width: $max-width-tablet;
+    }
 }
 .content {
     max-width: 767px;
@@ -142,6 +174,9 @@
     margin: 0 auto;
     padding: 70px 25px 70px 25px;
     background-color: darkblue;
+    @include mediaMd {
+        max-width: $max-width-tablet;
+    }
     .landmark-title-wrapper {
         text-align: center;
         margin-bottom: 30px;
@@ -167,6 +202,9 @@
     width: 100%;
     margin: 0 auto;
     position: relative;
+    @include mediaMd {
+        max-width: $max-width-tablet;
+    }
     .render-image-wrapper {
         max-width: 767px;
         width: 100%;
@@ -200,6 +238,10 @@
                 color: #ceaf70;
                 margin: 0 auto;
         }
+    }
+
+    @include mediaMd {
+        max-width: $max-width-tablet;
     }
     }
     
