@@ -69,18 +69,33 @@ body {
         }
 
         .language {
+            color: #fff;
             display: flex;
             flex-basis: 100%;
             flex-direction: column;
             align-items: flex-end;
+
             @include mediaMd {
                 max-width: $max-width-tablet;
                 align-items: flex-start;
                 flex-basis: 10%;
                 order: 1;
-            }
-            
+                
+            }   
         }
+
+        .vl {
+            visibility: hidden;
+            @include mediaMd {
+            visibility: visible;    
+            border-left: 1px solid #fff;
+            height: 50px;
+            display: flex;
+            order: 2;
+            padding-right: 50px;
+            }
+        }
+
         @include mediaMd {
             max-width: $max-width-tablet;
         }
@@ -277,6 +292,7 @@ body {
 
 
 .content-discover {
+    background-color: $base-color;
     max-width: 767px;
     width: 100%;
     margin: 0 auto;
@@ -287,7 +303,6 @@ body {
     @include mediaLg {
         max-width: $max-width-desktop;
         padding-left: 10%;
-        
         .render-image-wrapper {
             max-width: 750px;
             
@@ -299,9 +314,14 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+       
         .content-wrapper {
             position: absolute;
             max-width: 300px;
+            @include mediaLg {
+                left: 940px;
+                position: static;
+            }
             
             .subtitle {
                 font-size: 1rem;
@@ -309,6 +329,9 @@ body {
                 letter-spacing: 4.69px;
                 text-transform: uppercase;
                 text-align: center;
+                @include mediaLg {
+                    font-size: 1.4rem;
+                }
         }
             .title {
                 font-size: 2rem;
@@ -316,15 +339,20 @@ body {
                 letter-spacing: .9px;
                 color: white;
                 margin-bottom: 30px;
+                @include mediaLg {
+                    font-size: 3.8rem;
+                }
         }
             button {
                 background: transparent;
                 border-color: $brand-color;
+                border-width: thin;
                 padding: 15px 30px 15px 30px;
                 display: block;
-                font-family: Helvetica, Arial, sans-serif;
                 color: $brand-color;
                 margin: 0 auto;
+
+                
         }
     }
     }  
