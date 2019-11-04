@@ -1,4 +1,9 @@
 
+body {
+    font-family: 'Helvetica-Neue', 'Archivo Narrow', Helvetica, sans-serif;
+}
+
+
 .banner {
     max-width: 767px;
     margin: 0 auto;
@@ -20,7 +25,6 @@
         padding: 20px 20px 0 20px;
         height: 90px; 
         background: linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,.7) 1%,rgba(0,0,0,.5) 61%,transparent);
-        background-color: blue;
         .landmark-logo {
            flex-grow: 1;
            img {
@@ -30,7 +34,6 @@
     
         .menu-btn {
             @include mediaMd {
-                max-width: $max-width-tablet;
                 order: 3;
             }
             .btn-line {
@@ -64,7 +67,6 @@
             flex-basis: 100%;
             flex-direction: column;
             align-items: flex-end;
-            background-color: green;
             @include mediaMd {
                 max-width: $max-width-tablet;
                 align-items: flex-start;
@@ -76,6 +78,9 @@
         @include mediaMd {
             max-width: $max-width-tablet;
         }
+        @include mediaLg {
+            max-width: $max-width-desktop;
+        }
     }
 
 
@@ -84,7 +89,12 @@
         position: absolute;
         top: 280px;
         color: #fff;
+        text-shadow: 2px 2px 4px hsla(0,0%,39%,.8);
         font-size: 1.4rem;
+        span {
+            text-transform: uppercase;
+            font-size: 3rem;
+        }
         transition: visibility 0s linear 0s, opacity 300ms, .5s ease-in-out;
         &.close {
             visibility: hidden;
@@ -99,8 +109,8 @@
         height: 100vh;
         padding: 70px 0px 0px 20px;
         opacity: 1;
-        font-family: Helvetica, Arial, sans-serif;
         font-size: 1.5rem;
+        text-shadow: 2px 2px 4px hsla(0,0%,39%,.8);
         transition: .3s ease;
         line-height: 2rem;
         position: absolute;
@@ -108,9 +118,10 @@
         opacity: 0;
         transition: visibility 0s linear 300ms, opacity 300ms;
         .menu-bottom {
+            padding-top: 40px;
             .address {
             text-transform: uppercase;
-            color: #ceaf70;
+            color: $brand-color;
             font-size: .7rem;
             line-height: 1rem;
             width: 400px;
@@ -124,6 +135,12 @@
             .magnum-image-container {
                 width: 90px;
             }
+            @include mediaMd {
+                padding-top: 50px;
+            }
+            @include mediaLg {
+                padding-top: 200px;
+            }
         }
         a {
             text-decoration: none;
@@ -135,9 +152,22 @@
             opacity: 1;
             transition: visibility 0s linear 0s, opacity 300ms, .5s ease-in-out;
         }
+
+        @include mediaMd {
+            padding-top: 120px;
+        }
+        @include mediaLg {
+            max-width: $max-width-desktop;
+            padding-top: 200px;
+        }
     }
     @include mediaMd {
         max-width: $max-width-tablet;
+        
+
+    }
+    @include mediaLg {
+        max-width: $max-width-desktop;
     }
 }
 
@@ -146,13 +176,16 @@
     width: 100%;
     height: 450px;
     margin: 0 auto;
-    background-color: darkblue;
+    background-color: $base-color;
     @include mediaMd {
         max-width: $max-width-tablet;
     }
+    @include mediaLg {
+        max-width: $max-width-desktop;
+    }
     h3 {
         font-size: 1.4rem;
-        color: #ceaf70;
+        color: $brand-color;
         letter-spacing: 4.69px;
         margin-bottom: 50px;
         text-transform: uppercase;
@@ -164,60 +197,88 @@
     max-width: 767px;
     width: 100%;
     margin: 0 auto;
+    background-color: $base-color;
     @include mediaMd {
         max-width: $max-width-tablet;
     }
+    @include mediaLg {
+        max-width: $max-width-desktop;
+        display: flex;
+        justify-content: center;
+        .render-image-wrapper {
+            max-width: 650px;
+        }
+    }
+
+    .content {
+        max-width: 767px;
+        width: 100%;
+        padding: 70px 25px 70px 25px;
+        background-color: $base-color;
+        .landmark-title-wrapper {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .link {
+            margin: 0 auto;
+            text-align: center;
+            color: $brand-color;
+            text-transform: uppercase;
+            letter-spacing: 2.29px;
+        }
+        .subtitle {
+            font-size: 1.4rem;
+            color: $brand-color;
+            letter-spacing: 4.69px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        @include mediaMd {
+            max-width: $max-width-tablet;
+        }
+        @include mediaLg {
+            max-width: 375px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            .subtitle {
+                width: 375px;
+            }
+        } 
+    }
 }
-.content {
-    max-width: 767px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 70px 25px 70px 25px;
-    background-color: darkblue;
-    @include mediaMd {
-        max-width: $max-width-tablet;
-    }
-    .landmark-title-wrapper {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .link {
-        margin: 0 auto;
-        text-align: center;
-        color: #ceaf70;
-        text-transform: uppercase;
-        letter-spacing: 2.29px;
-    }
-    .subtitle {
-        font-size: 1.4rem;
-        color: #ceaf70;
-        letter-spacing: 4.69px;
-        text-transform: uppercase;
-        text-align: center;
-    }
-}
+
 
 .content-discover {
     max-width: 767px;
     width: 100%;
     margin: 0 auto;
-    position: relative;
     @include mediaMd {
         max-width: $max-width-tablet;
     }
+
+    @include mediaLg {
+        max-width: $max-width-desktop;
+        padding-left: 10%;
+        
+        .render-image-wrapper {
+            max-width: 750px;
+            
+        }
+    }
+    
     .render-image-wrapper {
-        max-width: 767px;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .content-wrapper {
             position: absolute;
             max-width: 300px;
-            left: 40%;
-            margin-left: -40px;
-            top: 30%;
-            margin-top: -30px;
+            
             .subtitle {
                 font-size: 1rem;
-                color: #ceaf70;
+                color: $brand-color;
                 letter-spacing: 4.69px;
                 text-transform: uppercase;
                 text-align: center;
@@ -231,22 +292,13 @@
         }
             button {
                 background: transparent;
-                border-color:#ceaf70;
+                border-color: $brand-color;
                 padding: 15px 30px 15px 30px;
                 display: block;
                 font-family: Helvetica, Arial, sans-serif;
-                color: #ceaf70;
+                color: $brand-color;
                 margin: 0 auto;
         }
     }
-
-    @include mediaMd {
-        max-width: $max-width-tablet;
-    }
-    }
-    
+    }  
 }
-
-
-
-  

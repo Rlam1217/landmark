@@ -3,3 +3,9 @@
       @content;
     }
   }
+
+  @mixin mediaLg {
+    @media (min-width: $max-width-tablet) {
+      @content;
+    }
+  }
