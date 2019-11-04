@@ -1,4 +1,8 @@
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     font-family: 'Helvetica-Neue', 'Archivo Narrow', Helvetica, sans-serif;
 }
@@ -16,7 +20,9 @@ body {
     position: relative;
     .nav {
         z-index: 1;
-        position: absolute;
+        position: fixed;
+        top: 0;
+        transition: top 1.1s;
         max-width: 767px;
         width: 100%;
         display: flex;
@@ -95,6 +101,25 @@ body {
             text-transform: uppercase;
             font-size: 3rem;
         }
+
+        .scroll-line {
+            border-top: 1px solid white;
+            margin-top: 100px;
+           
+        }
+        a {
+            font-size: 1rem;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+            top: 200px;
+
+        }
+        img {
+            width: 29px;
+            padding-top: 35px;
+        }
+
         transition: visibility 0s linear 0s, opacity 300ms, .5s ease-in-out;
         &.close {
             visibility: hidden;
@@ -142,6 +167,7 @@ body {
                 padding-top: 200px;
             }
         }
+
         a {
             text-decoration: none;
             color: #fff;
@@ -190,6 +216,7 @@ body {
         margin-bottom: 50px;
         text-transform: uppercase;
         text-align: center;
+        padding-top: 50px;
     }
 }
 
