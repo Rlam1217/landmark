@@ -54,7 +54,6 @@ body {
                     &:nth-child(1) {
                         transform: translateY(6px);
                         transition: transform .3s ease-in-out;
-                        transform: rotate(45deg);
                     }
                     &:nth-child(2) {
                         transition: transform 1s;
@@ -74,14 +73,20 @@ body {
             flex-basis: 100%;
             flex-direction: column;
             align-items: flex-end;
-
             @include mediaMd {
                 max-width: $max-width-tablet;
                 align-items: flex-start;
                 flex-basis: 10%;
                 order: 1;
-                
-            }   
+                flex-direction: row;
+            }
+            .register {
+                visibility: hidden;
+                @include mediaMd {
+                    visibility: visible;
+                    padding: 0px 15px 0 15px;
+                }
+            }
         }
 
         .vl {
@@ -93,6 +98,7 @@ body {
             display: flex;
             order: 2;
             padding-right: 50px;
+            padding-right: 15px;
             }
         }
 
@@ -119,7 +125,7 @@ body {
 
         .scroll-line {
             border-top: 1px solid white;
-            margin-top: 100px;
+            margin-top: 40px;
            
         }
         a {
@@ -127,7 +133,7 @@ body {
             color: white;
             text-decoration: none;
             position: absolute;
-            top: 200px;
+            top: 150px;
 
         }
         img {
@@ -218,6 +224,24 @@ body {
     height: 450px;
     margin: 0 auto;
     background-color: $base-color;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    h3 {
+        flex-basis: 100%;
+        
+        
+    }
+    div {
+        color: white;
+        font-size: 7rem;
+    }
+    .l{
+        
+    }
+    .i {
+        padding-top: 50px;
+    }
     @include mediaMd {
         max-width: $max-width-tablet;
     }
@@ -310,7 +334,6 @@ body {
     }
     
     .render-image-wrapper {
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -318,9 +341,13 @@ body {
         .content-wrapper {
             position: absolute;
             max-width: 300px;
+            @include mediaMd {
+                
+                
+            }
             @include mediaLg {
-                left: 940px;
                 position: static;
+                
             }
             
             .subtitle {
@@ -340,7 +367,7 @@ body {
                 color: white;
                 margin-bottom: 30px;
                 @include mediaLg {
-                    font-size: 3.8rem;
+                    font-size: 3.7rem;
                 }
         }
             button {
@@ -348,10 +375,12 @@ body {
                 border-color: $brand-color;
                 border-width: thin;
                 padding: 15px 30px 15px 30px;
-                display: block;
+               
                 color: $brand-color;
                 margin: 0 auto;
-
+                @include mediaLg {
+                    border: none;
+                }
                 
         }
     }
