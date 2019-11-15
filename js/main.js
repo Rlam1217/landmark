@@ -37,9 +37,36 @@ let prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
 let currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
-    document.getElementById('navbar').style.top = "0";
+    document.getElementById('navbar').style.top = '0';
   } else {
-    document.getElementById('navbar').style.top = "-100px";
+    document.getElementById('navbar').style.top = '-100px';
   }
   prevScrollpos = currentScrollPos;
 }
+
+// parallax scroll
+
+document.addEventListener('DOMContentLoaded', () => {
+  let controller = new ScrollMagic.Controller();
+
+  let timeline = new TimelineMax();
+  timeline
+      
+      
+      .from('.i', 1, {
+          top: '120px',
+          
+      }, '-=3')
+      .from('.f', 1, {
+        top: '70px',
+       
+    }, '-=3')
+
+  let scene = new ScrollMagic.Scene({
+      triggerElement: 'quote',
+      duration: '200%',
+      triggerHook: 0
+  })
+  .setTween(timeline)
+  .addTo(controller);
+})
