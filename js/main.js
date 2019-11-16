@@ -3,6 +3,8 @@
 const menuBtn = document.querySelector('.menu-btn');
 const menuMain = document.querySelector('.menu-main');
 const bannerText = document.querySelector('.banner-text');
+const scrollDownText = document.querySelector('.scroll-down-text');
+const scrollDownArrow = document.querySelector('.scroll-down-arrow');
 const menuItems = document.querySelectorAll('.menu-item');
 
 
@@ -16,6 +18,8 @@ function toggleMenu() {
         menuBtn.classList.add('close');
         menuMain.classList.add('show');
         bannerText.classList.add('close');
+        scrollDownText.classList.add('close');
+        scrollDownArrow.classList.add('close');
         menuItems.forEach(item => item.classList.add('show'));
 
         // set menu state
@@ -24,6 +28,8 @@ function toggleMenu() {
         menuBtn.classList.remove('close');
         menuMain.classList.remove('show');
         bannerText.classList.remove('close');
+        scrollDownText.classList.remove('close');
+        scrollDownArrow.classList.remove('close');
         menuItems.forEach(item => item.classList.remove('show'));
         
         // set menu state

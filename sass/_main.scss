@@ -18,6 +18,12 @@ body {
     background-position: center;
     background-size: cover;
     position: relative;
+    @include mediaMd {
+        max-width: $max-width-tablet;
+    }
+    @include mediaLg {
+        max-width: $max-width-desktop;
+    }
     .nav {
         z-index: 1;
         position: fixed;
@@ -52,7 +58,6 @@ body {
             &.close {
                 .btn-line {
                     &:nth-child(1) {
-                        
                         transition: transform .3s ease-in-out;
                         animation: btn-top-close 1s forwards;
                     }
@@ -61,7 +66,6 @@ body {
                         opacity: 0;
                     }
                     &:nth-child(3) {
-                        
                         transition: transform .3s ease-in-out;
                         animation: btn-bottom-close 1s forwards;
                     }
@@ -71,8 +75,8 @@ body {
 
         @keyframes btn-top-close {
             0% {transform: translateY(0px);}
-            50% {transform: translateY(6px); }
-            100% {transform-origin: 20% 40%; transform: rotate(45deg); }
+            50% {transform: translateY(6px);}
+            100% {transform-origin: 20% 40%; transform: rotate(45deg);}
         }
 
         @keyframes btn-bottom-close {
@@ -124,44 +128,142 @@ body {
         }
     }
 
-
     .banner-text {
         padding-left: 20px;
         position: absolute;
-        top: 280px;
+        top: 50vh;
         color: #fff;
         text-shadow: 2px 2px 4px hsla(0,0%,39%,.8);
         font-size: 1.4rem;
-        span {
+        @include mediaMd {
+            padding-left: 50px;
+        }
+        .banner-title {
+            position: relative;
+            animation-name: banner-title;
+            transition-timing-function: ease-in;
+            animation-delay: .3s;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes banner-title {
+            0% {left: 50px; opacity: 0;}
+            100% {left: 0px;}
+        }
+        .banner-subtitle {
             text-transform: uppercase;
             font-size: 3rem;
+            position: relative;
+            animation-name: banner-subtitle;
+            transition-timing-function: ease-in;
+            animation-delay: .5s;
+            animation-duration: 1.5s;
+            animation-fill-mode: forwards;
         }
-
+        @keyframes banner-subtitle {
+            0% {left: 70px; opacity: 0;}
+            100% {left: 0px;}
+        }
         .scroll-line {
             border-top: 1px solid white;
-            margin-top: 40px;
-           
+            border-left: 0px;
+            margin-top: 20px;
+            margin-left: 0px;
+            width: 40px;
+            position: relative;
+            left: 5px;
+            animation-name: scroll-line;
+            transition-timing-function: ease-in;
+            animation-delay: 1.3s;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+            @include mediaLg {
+                margin-top: 13vh;
+            }
         }
-        a {
-            font-size: 1rem;
-            color: white;
-            text-decoration: none;
-            position: absolute;
-            top: 150px;
-
+        @keyframes scroll-line {
+            0% {width: 0px; opacity: 0;}
+            100% {width: 40px; opacity: 1; }
         }
-        img {
-            width: 29px;
-            padding-top: 35px;
-        }
-
-        
         &.close {
             visibility: hidden;
             opacity: 0;
             transition: visibility 0s linear 0s, opacity 300ms, .5s ease-in-out;
         }
     }
+
+    .scroll-down-text {
+        font-size: .8rem;
+        text-transform: uppercase;
+        position: absolute;
+        top: 77vh;
+        padding-left: 20px;
+        animation-name: scroll-down-text;
+        transition-timing-function: ease-in;
+        animation-delay: 1.3s;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        opacity: 0;
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        @include mediaMd {
+            top: 80vh;
+            padding-left: 55px;
+        }
+        @include mediaLg {
+            top: 83vh;
+        }
+        &.close {
+            visibility: hidden;
+            transition: visibility 0s linear 0s, .15s ease-in-out;
+        }  
+    }
+    @keyframes scroll-down-text {
+        0% {left: 70px; opacity: 0;}
+        100% {left: 0px; opacity: 1; }
+    }
+
+    .scroll-down-arrow {
+        position: absolute;
+        padding-left: 20px;
+        opacity: 0;
+        padding-left: 20px;
+        animation-name: scroll-down-arrow;
+        transition-timing-function: ease-in;
+        animation-delay: 1.3s;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        img {
+            width: 29px;
+            padding-top: 35px;
+        }
+        @keyframes scroll-down-arrow {
+            0% {top: 72vh;}
+            100% {top: 77vh; opacity: 1;}
+            }
+        @include mediaMd {
+            padding-left: 50px;
+            @keyframes scroll-down-arrow {
+            0% {top: 76vh;}
+            100% {top: 81vh; opacity: 1;}
+            }
+        }    
+        @include mediaLg {
+            top: 85vh;
+            @keyframes scroll-down-arrow {
+                0% {top: 80vh;}
+                100% {top: 85vh; opacity: 1;}
+            }
+        }
+        &.close {
+            visibility: hidden;
+            transition: visibility 0s linear 0s, .15s ease-in-out;
+        }  
+    }
+    
     .menu-main {
         background-color: rgba(0,0,0,.5);
         list-style-type: none;
@@ -202,7 +304,6 @@ body {
                 padding-top: 200px;
             }
         }
-
         a {
             text-decoration: none;
             color: #fff;
@@ -213,7 +314,6 @@ body {
             opacity: 1;
             transition: visibility 0s linear 0s, opacity 300ms, .5s ease-in-out;
         }
-
         @include mediaMd {
             padding-top: 120px;
         }
@@ -221,14 +321,6 @@ body {
             max-width: $max-width-desktop;
             padding-top: 200px;
         }
-    }
-    @include mediaMd {
-        max-width: $max-width-tablet;
-        
-
-    }
-    @include mediaLg {
-        max-width: $max-width-desktop;
     }
 }
 
